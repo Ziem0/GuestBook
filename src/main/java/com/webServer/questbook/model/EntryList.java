@@ -3,6 +3,7 @@ package com.webServer.questbook.model;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Getter
@@ -16,5 +17,9 @@ public class EntryList {
 
     public void addEntry(Entry entry) {
         entries.add(entry);
+    }
+
+    public Iterator<Entry> getIterator() {
+        return this.entries.iterator();
     }
 }

@@ -34,7 +34,7 @@ public class ConnectDB {
         }
     }
 
-    public void closeConnection() {
+    public static void closeConnection() {
         try {
             connection.close();
         } catch (SQLException e) {
@@ -42,10 +42,9 @@ public class ConnectDB {
         }
     }
 
-    public void migrate() {
+    public static void migrate() {
         Flyway flyway = new Flyway();
         flyway.setDataSource(DB_URL, "none", "none");
-//        flyway.clean();
         flyway.migrate();
     }
 }

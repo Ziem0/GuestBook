@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GuestBook</title>
+    <meta name="author" content="Ziemo Andrzejewski"/>
+    <meta name="description" content="home page"/>
+    <meta name="keyword" content="about me"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="static/css/style.css"/>
+    <!--// if debug -> path = ../static/css/style.css/-->
+    <!--// if through server server need a proper context path starting from STATIC!-->
+    </head>
+<body>
+    <nav>
+        <h2>Ziemo's guestBook</h2>
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="sign.html">sign the guestbook</a></li>
+            <li><a href="index.html">down the list</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="main">
+
+            <div class="intro">
+                <h1>Welcome to my home page!</h1>
+                <h2>Be my guest!</h2>
+            </div>
+
+            <div class="records">
+                <table>
+                    {{entries}}
+                </table>
+            </div>
+
+            <a href="sign.html">Add new record</a>
+
+            <div class="footer">
+                <p>Ziemo Andrzejewski company. All rights reserved.</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

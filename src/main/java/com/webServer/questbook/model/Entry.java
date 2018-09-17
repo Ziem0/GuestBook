@@ -1,5 +1,6 @@
 package com.webServer.questbook.model;
 
+import com.webServer.questbook.dao.ConnectBook;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -12,11 +13,11 @@ public class Entry {
     private String message;
     private LocalDate date;
 
-    public Entry(int id, String name, String message) {
-        this.id = id;
+    public Entry(String name, String message) {
         this.name = name;
         this.message = message;
         this.date = LocalDate.now();
+        ConnectBook.getConnectBook().addNewRecord(this);
     }
 
     public Entry(int id, String name, String message, LocalDate date) {
@@ -30,12 +31,8 @@ public class Entry {
         return date.format(DateTimeFormatter.ISO_LOCAL_DATE);
     }
 
-    @Override
-    public String toString() {
-        return String.format("name:%s\ndate:%s\nmessage:%s", name, getDate(), message);
-    }
-
-//    public String[] toStringArray() {
-//        return new String[]{""+id, name, message, getDate()};
+//    @Override
+//    public String toString() {
+//        return String.format("name:%s\ndate:%s\nmessage:%s", name, getDate(), message);
 //    }
 }

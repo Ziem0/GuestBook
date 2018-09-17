@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: darksalmon;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: brown;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style-type: none;
+    margin: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+nav ul li a:hover {
+    color: cornflowerblue;
+    font-size: 1.1em;
+    border: 1px solid black;
+    background: darksalmon;
+    border-radius: 5px;
+    padding: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/*
+Minimal resolution for navigator < 601px
+ */
+
+@media all and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+/*
+Standard resolution > 600px
+ */
+@media all and (min-width: 601px){
+    .sign {
+        display: grid;
+        grid-template-areas: "form" "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 30px;
+    }
+}
+
+/*
+Grid referrals
+ */
+
+
+form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+form :first-of-type{
+    margin-bottom: 10px;
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+
+
+
+
+
+
+
+
+
+

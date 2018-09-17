@@ -106,6 +106,12 @@
             <version>2.22.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jtwig/jtwig-web -->
+        <dependency>
+            <groupId>org.jtwig</groupId>
+            <artifactId>jtwig-core</artifactId>
+            <version>5.87.0.RELEASE</version>
+        </dependency>
 
     </dependencies>
 </project>

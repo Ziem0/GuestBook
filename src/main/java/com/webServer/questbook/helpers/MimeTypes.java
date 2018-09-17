@@ -1,4 +1,4 @@
-package com.backend.webServer.helpers;
+package com.webServer.questbook.helpers;
 
 // Copyright (c) 2003-2009, Jodd Team (jodd.org). All Rights Reserved.
 

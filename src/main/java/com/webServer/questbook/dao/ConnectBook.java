@@ -3,25 +3,18 @@ package com.webServer.questbook.dao;
 import com.webServer.questbook.model.Entry;
 import com.webServer.questbook.model.EntryList;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
-import java.util.LinkedList;
-import java.util.List;
-
-import static com.webServer.questbook.dao.ConnectDB.getConnection;
-import static java.time.LocalDate.parse;
 
 public class ConnectBook {
     private static ConnectBook connectBook = null;
-    private Connection connection;
-    private PreparedStatement preparedStatement;
-    private ResultSet result;
+    private final Connection connection;
+    private PreparedStatement preparedStatement = null;
+    private ResultSet result = null;
 
     private ConnectBook() {
-        this.connection = getConnection();
+        this.connection = ConnectDB.getConnection();
+        ConnectDB.migrate();
     }
 
     public static ConnectBook getConnectBook() {
@@ -77,10 +70,10 @@ public class ConnectBook {
                 String name = result.getString(2);
                 String message = result.getString(3);
                 String date = result.getString(4);
-                LocalDate formDate = parse(date);
+                LocalDate formDate = LocalDate.parse(date);
                 entryList.addEntry(new Entry(id, name, message, formDate));
-                closePreparedStatementAndResult();
             }
+            closePreparedStatementAndResult();
         } catch (SQLException e) {
             e.printStackTrace();
         }
